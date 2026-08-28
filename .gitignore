@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Environment variables (keep your local config private)
+.env
+.env.local
+.env.production
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# SQLite database (auto-created by backend)
+backend/campusconnect.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs
+build/
