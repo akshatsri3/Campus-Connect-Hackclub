@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 // POST /api/events
 // Creates a new event
 router.post('/', (req, res) => {
-  const { title, description, date, time, venue, organizer, category } = req.body;
+  const { title, description, date, time, venue, organizer, category, image_url } = req.body;
 
   // Basic validation — all required fields must be present
   if (!title || !date || !time || !venue || !organizer) {
@@ -52,9 +52,9 @@ router.post('/', (req, res) => {
   }
 
   const result = db.prepare(`
-    INSERT INTO events (title, description, date, time, venue, organizer, category)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `).run(title, description || '', date, time, venue, organizer, category || 'General');
+    INSERT INTO events (title, description, date, time, venue, organizer, category, image_url)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(title, description || '', date, time, venue, organizer, category || 'General', image_url || null);
 
   // Fetch and return the newly created event
   const newEvent = db.prepare('SELECT * FROM events WHERE id = ?').get(result.lastInsertRowid);

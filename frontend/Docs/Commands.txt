@@ -1,0 +1,104 @@
+// terminal commands 
+
+//create app
+
+npx create-expo-app@latest CampusConnect
+
+//rooting to current directory
+
+cd CampusConnect
+
+//starting the server
+
+npx expo start
+
+//installing dependencies
+npx expo install
+
+//if expo router not installed
+
+npx expo install expo-router
+
+
+🌐 BACKEND — Node.js + Express
+
+Open a new terminal from the CampusConnect folder.
+
+//Create backend:
+
+mkdir backend
+
+//Go inside:
+
+cd backend
+
+//Initialize Node project:
+
+npm init -y
+
+//Install Express:
+
+npm install express
+
+//Install SQLite driver:
+
+npm install better-sqlite3
+
+//Install Nodemon for development:
+
+npm install --save-dev nodemon
+
+
+▶️ Start Backend
+
+Once our server.js exists:
+//
+node server.js
+//
+During development, preferably:
+
+npx nodemon server.js
+
+//Or if we add a script to package.json:
+
+npm run dev
+
+
+//TESTING LINKS
+
+backend
+http://localhost:5000/api/events
+
+
+
+//Other commands
+# 1. Create app
+npx create-expo-app@latest CampusConnect
+
+# 2. Enter project
+cd CampusConnect
+
+# 3. Start Expo
+npx expo start
+
+# 4. Create backend
+mkdir backend
+cd backend
+
+# 5. Initialize Node
+npm init -y
+
+# 6. Install backend dependencies
+npm install express better-sqlite3
+
+# 7. Development tool
+npm install --save-dev nodemon
+
+# 8. Start backend
+npm run dev
+
+# 9. Check Expo
+npx expo doctor
+
+# 10. Clear Expo cache if needed
+npx expo start -c

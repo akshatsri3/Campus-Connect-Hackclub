@@ -1,26 +1,22 @@
 // app/_layout.js
-// The root layout for the entire app.
-// This file sets up the bottom tab navigation.
-// Expo Router automatically uses this file as the root layout.
+// Root layout for the CampusConnect app with modern dark navigation.
 
+import React from 'react';
 import { Tabs } from 'expo-router';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
 
 export default function RootLayout() {
   return (
     <Tabs
       screenOptions={{
-        // Tab bar styling
-        tabBarActiveTintColor: Colors.primary,
-        tabBarInactiveTintColor: Colors.textLight,
+        headerShown: false,
+        tabBarActiveTintColor: Colors.tabBarActive,
+        tabBarInactiveTintColor: Colors.tabBarInactive,
         tabBarStyle: styles.tabBar,
         tabBarLabelStyle: styles.tabLabel,
-
-        // Header styling
-        headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitle,
-        headerTintColor: Colors.primary,
+        tabBarItemStyle: styles.tabBarItem,
       }}
     >
       {/* Home Tab */}
@@ -29,11 +25,13 @@ export default function RootLayout() {
         options={{
           title: 'Home',
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <TabIcon emoji="🏠" color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
+              size={22}
+              color={color}
+            />
           ),
-          headerTitle: 'CampusConnect',
-          headerTitleStyle: styles.appHeaderTitle,
         }}
       />
 
@@ -43,8 +41,13 @@ export default function RootLayout() {
         options={{
           title: 'My Events',
           tabBarLabel: 'My Events',
-          tabBarIcon: ({ color }) => <TabIcon emoji="🎟️" color={color} />,
-          headerTitle: 'My Events',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'calendar' : 'calendar-outline'}
+              size={22}
+              color={color}
+            />
+          ),
         }}
       />
 
@@ -52,29 +55,28 @@ export default function RootLayout() {
       <Tabs.Screen
         name="create-event"
         options={{
-          title: 'Create Event',
+          title: 'Create',
           tabBarLabel: 'Create',
-          tabBarIcon: ({ color }) => <TabIcon emoji="➕" color={color} />,
-          headerTitle: 'Create Event',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'add-circle' : 'add-circle-outline'}
+              size={24}
+              color={color}
+            />
+          ),
         }}
       />
 
-      {/* Event Details — hidden from tab bar, opened from Home */}
+      {/* Event Details — hidden from tab bar */}
       <Tabs.Screen
         name="events/[id]"
         options={{
-          href: null, // This hides it from the tab bar
-          headerTitle: 'Event Details',
-          headerShown: true,
+          href: null,
+          headerShown: false,
         }}
       />
     </Tabs>
   );
-}
-
-// Simple emoji icon for tabs — using Text since we don't need an icon library
-function TabIcon({ emoji }) {
-  return <Text style={{ fontSize: 20 }}>{emoji}</Text>;
 }
 
 const styles = StyleSheet.create({
@@ -82,29 +84,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.tabBar,
     borderTopColor: Colors.tabBarBorder,
     borderTopWidth: 1,
-    height: 60,
-    paddingBottom: 8,
-    paddingTop: 4,
+    height: 64,
+    paddingBottom: 10,
+    paddingTop: 6,
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
   },
   tabLabel: {
     fontSize: 11,
     fontWeight: '600',
+    marginTop: 2,
   },
-  header: {
-    backgroundColor: Colors.white,
-    borderBottomColor: Colors.border,
-    borderBottomWidth: 1,
-    elevation: 0,
-    shadowOpacity: 0,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.textPrimary,
-  },
-  appHeaderTitle: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: Colors.primary,
+  tabBarItem: {
+    paddingVertical: 2,
   },
 });

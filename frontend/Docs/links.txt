@@ -1,0 +1,14 @@
+//EXPO Website
+
+https://expo.dev/
+
+//React Native
+
+https://reactnative.dev/
+
+
+//Git download link
+https://git-scm.com/
+
+//downloading GitHub desktop
+https://desktop.github.com/download/

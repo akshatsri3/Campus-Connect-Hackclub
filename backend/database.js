@@ -37,9 +37,16 @@ function initializeDatabase() {
       venue TEXT NOT NULL,
       organizer TEXT NOT NULL,
       category TEXT DEFAULT 'General',
+      image_url TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  try {
+    db.exec('ALTER TABLE events ADD COLUMN image_url TEXT');
+  } catch (e) {
+    // Column already exists
+  }
 
   // Registrations table — tracks who registered for which event
   // UNIQUE(user_id, event_id) prevents the same user from registering twice for one event

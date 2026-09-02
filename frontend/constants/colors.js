@@ -1,48 +1,53 @@
 // constants/colors.js
-// Central color palette for the entire app.
-// Using a consistent palette makes the app look professional and is easy to maintain.
+// Central color palette for the dark obsidian & violet theme.
 
 const Colors = {
-  // Primary brand color — indigo/purple
-  primary: '#4F46E5',
-  primaryLight: '#6366F1',
-  primaryDark: '#3730A3',
+  // Primary brand color — vibrant violet/indigo
+  primary: '#7C3AED',
+  primaryLight: '#8B5CF6',
+  primaryDark: '#5B21B6',
 
   // Accent
-  accent: '#EC4899',
+  accent: '#A78BFA',
+  bannerBg: '#5C54E5',
 
-  // Category tag colors
+  // Category tag colors (dark background + vibrant text matching UI mockup)
   categories: {
-    Workshop: { bg: '#EEF2FF', text: '#4F46E5' },
-    Meetup: { bg: '#F0FDF4', text: '#16A34A' },
-    Talk: { bg: '#FFF7ED', text: '#EA580C' },
-    Social: { bg: '#FDF2F8', text: '#C026D3' },
-    Competition: { bg: '#FEF2F2', text: '#DC2626' },
-    General: { bg: '#F1F5F9', text: '#64748B' },
+    Academic: { bg: '#064E3B', text: '#34D399', badgeBg: 'rgba(52, 211, 153, 0.2)' },
+    Music: { bg: '#4C1D95', text: '#C4B5FD', badgeBg: 'rgba(196, 181, 253, 0.2)' },
+    Tech: { bg: '#1E3A8A', text: '#93C5FD', badgeBg: 'rgba(147, 197, 253, 0.2)' },
+    Career: { bg: '#78350F', text: '#FCD34D', badgeBg: 'rgba(252, 211, 77, 0.2)' },
+    Social: { bg: '#831843', text: '#F472B6', badgeBg: 'rgba(244, 114, 182, 0.2)' },
+    Competition: { bg: '#7F1D1D', text: '#FCA5A5', badgeBg: 'rgba(252, 165, 165, 0.2)' },
+    General: { bg: '#1E293B', text: '#94A3B8', badgeBg: 'rgba(148, 163, 184, 0.2)' },
   },
 
   // Background colors
-  background: '#F8FAFC',
-  card: '#FFFFFF',
-  cardBorder: '#E2E8F0',
+  background: '#0B0E17',
+  card: '#151928',
+  cardBorder: '#23283E',
 
   // Text colors
-  textPrimary: '#1E293B',
-  textSecondary: '#64748B',
-  textLight: '#94A3B8',
+  textPrimary: '#F8FAFC',
+  textSecondary: '#94A3B8',
+  textLight: '#64748B',
 
   // Status colors
-  success: '#16A34A',
-  error: '#DC2626',
-  errorLight: '#FEF2F2',
-  warning: '#D97706',
+  success: '#10B981',
+  successLight: 'rgba(16, 185, 129, 0.15)',
+  error: '#EF4444',
+  errorLight: 'rgba(239, 68, 68, 0.15)',
+  warning: '#F59E0B',
 
   // UI elements
   white: '#FFFFFF',
-  border: '#E2E8F0',
-  inputBg: '#F8FAFC',
-  tabBar: '#FFFFFF',
-  tabBarBorder: '#E2E8F0',
+  border: '#23283E',
+  inputBg: '#161B2E',
+  inputBorder: '#282E47',
+  tabBar: '#0B0E17',
+  tabBarBorder: '#1A1E2F',
+  tabBarActive: '#8B5CF6',
+  tabBarInactive: '#64748B',
 };
 
 export default Colors;
